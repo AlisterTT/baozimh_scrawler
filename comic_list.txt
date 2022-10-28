@@ -1,0 +1,4 @@
+[
+    {'name':'装备我最强', 'url':'https://cn.webmota.com/comic/chapter/zhuangbeiwozuiqiang-teamargomonohumbugredicestudiosaenalredicestudio_al/'},
+    {'name':'据说我是王的女儿', 'url':'https://cn.webmota.com/comic/chapter/jushuowoshiwangdenuer-kimreknabichu_a/'}
+]

@@ -1,8 +1,8 @@
-import requests,re,time,os
+import requests,re,time,os,ast
 from contextlib import closing
 from PIL import Image
 
-def down_load(file_url, file_path):
+def down_load(file_url, file_path): #下载用
     with closing(requests.get(file_url, stream=True)) as response:
         chunk_size = 1024  # 单次请求最大值
         if 'Content-Length' in response.headers:
@@ -36,9 +36,18 @@ def combine_imgs_pdf(folder_path, pdf_file_path):  #合成pdf
         sources.append(png_file)
     output.save(pdf_file_path, "pdf", save_all=True, append_images=sources)
 
+with open('comic_list.txt', 'r',encoding='UTF-8') as f:
+    import_list = ast.literal_eval(f.read())
+for i in range(len(import_list)):
+    a = str(import_list[i]['name'])
+    choose_list = str(i+1) + '. ' + a
+    print(choose_list)
+choose = int(input('选择漫画序号：'))
 comic_capter = input('输入章节：')
 comic_capter_format = comic_capter + '_'
-baseurl = 'https://cn.webmota.com/comic/chapter/zhuangbeiwozuiqiang-teamargomonohumbugredicestudiosaenalredicestudio_al/'+'0_'+comic_capter_format
+baseurl = import_list[choose-1]['url']+'0_'+comic_capter_format
+directory_name = import_list[choose-1]['name']+comic_capter
+
 comic_url = []
 temlist = []
 for i in range(1,21):
@@ -49,17 +58,16 @@ for i in range(len(comic_url)):
     for u in range(len(img_list)):
         temlist.append(img_list[u])
 final_list = sorted(set(temlist),key=temlist.index)
-#for i in range(len(final_list)):
-#    print (final_list[i])
-if not os.path.exists(comic_capter):
-    work_directory = os.mkdir(comic_capter)
+
+if not os.path.exists(directory_name):
+    work_directory = os.mkdir(directory_name)
 
 for i in range (len(final_list)):
     file_url = final_list[i]
-    file_path = f'{comic_capter}/{comic_capter}_{i}.jpg'
+    file_path = f'{directory_name}/{directory_name}_{i}.jpg'
     down_load(file_url, file_path)
     time.sleep(0.5)
 
-folder = f'./{comic_capter}/'
-pdfFile = f'./{comic_capter}/{comic_capter}_final.pdf'
+folder = f'./{directory_name}/'
+pdfFile = f'./{directory_name}/{directory_name}_final.pdf'
 combine_imgs_pdf(folder, pdfFile)
