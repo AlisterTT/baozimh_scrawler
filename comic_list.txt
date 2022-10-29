@@ -1,3 +1,4 @@
 [
-    {'name':'装备我最强', 'url':'https://cn.baozimh.com/comic/zhuangbeiwozuiqiang-teamargomonohumbugredicestudiosaenalredicestudio'}
+    {'name':'装备我最强', 'url':'https://cn.baozimh.com/comic/zhuangbeiwozuiqiang-teamargomonohumbugredicestudiosaenalredicestudio'},
+    {'name':'航海王', 'url':'https://cn.baozimh.com/comic/hanghaiwang-weitianrongyilang'}
 ]

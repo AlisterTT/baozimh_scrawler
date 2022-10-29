@@ -42,3 +42,4 @@ for i in range (len(final_list)):
 folder = f'./{directory_name}/'
 pdfFile = f'./{directory_name}/{directory_name}_final.pdf'
 getfunction.combine_imgs_pdf(folder, pdfFile)
+print('\nComplate')
