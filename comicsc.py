@@ -14,6 +14,7 @@ m = getfunction.getlist(importurl)
 for i in range(len(m)):
     print (f'{i+1}. {m[i][1]}')
 comic_capter = int(input('输入章节序号：'))
+print('请稍等...')
 comic_capter = comic_capter - 1
 baseurl = f'https://cn.webmota.com/comic/chapter/{comic_name}/0_{m[comic_capter][0]}'
 directory_name = import_list[choose-1]['name']+'-'+m[comic_capter][1]
