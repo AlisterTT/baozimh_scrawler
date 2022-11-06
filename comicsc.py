@@ -30,10 +30,10 @@ for i in range(len(comic_url)):
         temlist.append(img_list[u])
 final_list = sorted(set(temlist),key=temlist.index)
 
-if not os.path.exists('PDF'):
-    work_directory = os.mkdir('PDF')
-if not os.path.exists(directory_name):
-    work_directory = os.mkdir(directory_name)
+output_dir = ['PDF', directory_name]
+for i in range(len(output_dir)):
+    if not os.path.exists(output_dir[i]):
+        os.mkdir(output_dir[i])
 
 for i in range (len(final_list)):
     file_url = final_list[i]
