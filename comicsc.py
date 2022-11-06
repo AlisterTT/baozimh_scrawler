@@ -21,7 +21,7 @@ directory_name = import_list[choose-1]['name']+'-'+m[comic_capter][1]
 
 comic_url = []
 temlist = []
-for i in range(1,21):
+for i in range(1,10):
     comic_url.append(baseurl+str(i)+'.html')
 for i in range(len(comic_url)):
     html_str = requests.get(comic_url[i]).content.decode()
