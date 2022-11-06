@@ -30,6 +30,8 @@ for i in range(len(comic_url)):
         temlist.append(img_list[u])
 final_list = sorted(set(temlist),key=temlist.index)
 
+if not os.path.exists('PDF'):
+    work_directory = os.mkdir('PDF')
 if not os.path.exists(directory_name):
     work_directory = os.mkdir(directory_name)
 
@@ -40,6 +42,7 @@ for i in range (len(final_list)):
     time.sleep(0.1)
 
 folder = f'./{directory_name}/'
-pdfFile = f'./{directory_name}/{directory_name}_final.pdf'
+#pdfFile = f'./{directory_name}/{directory_name}_final.pdf'
+pdfFile = f'./PDF/{directory_name}.pdf'
 getfunction.combine_imgs_pdf(folder, pdfFile)
 print('\nComplate')
