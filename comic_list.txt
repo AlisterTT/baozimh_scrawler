@@ -1,5 +1,5 @@
 [
-    {'name':'装备我最强', 'url':'https://cn.baozimh.com/comic/zhuangbeiwozuiqiang-teamargomonohumbugredicestudiosaenalredicestudio_xmoag1'},
+    {'name':'装备我最强', 'url':'https://cn.baozimh.com/comic/zhuangbeiwozuiqiang-teamargomonohumbugredicestudiosaenalredicestudio'},
     {'name':'航海王', 'url':'https://cn.baozimh.com/comic/hanghaiwang-weitianrongyilang'},
     {'name':'想要成为影之实力者', 'url':'https://cn.baozimh.com/comic/xiangyaochengweiyingzhishilizhe-banyexinglifengzedajiedongxijiaochuanjituan'},
     {'name':'一拳超人', 'url':'https://cn.baozimh.com/comic/yiquanchaoren-cuntianxiongjieone'}
