@@ -1,4 +1,4 @@
-import requests,re,os
+import requests,os,time,shutil
 from contextlib import closing
 from PIL import Image
 
@@ -35,3 +35,31 @@ def combine_imgs_pdf(folder_path, pdf_file_path):  #合成pdf
             png_file = png_file.convert("RGB")
         sources.append(png_file)
     output.save(pdf_file_path, "pdf", save_all=True, append_images=sources)
+
+def merge(final_list,directory_name):#下载图片后合并为pdf
+    output_dir = ['PDF', directory_name]
+    for i in range(len(output_dir)):
+        if not os.path.exists(output_dir[i]):
+            os.mkdir(output_dir[i])
+    for i in range (len(final_list)):
+        file_url = final_list[i]
+        file_path = f'{directory_name}/{directory_name}_{i}.jpg'
+        down_load(file_url, file_path)
+        time.sleep(0.1)#设置延迟
+    folder = f'./{directory_name}/'
+    pdfFile = f'./PDF/{directory_name}.pdf'
+    combine_imgs_pdf(folder, pdfFile)
+    shutil.rmtree(folder) #完成后删除图片文件夹
+    print(f'\n{directory_name}Complate\n')
+
+
+def region2list(rg_str):#格式化章节序列号为列表
+    lst = []
+    rg_str_lst = rg_str.strip().split(',')
+    for i in rg_str_lst:
+        if '-' in i:
+            st, ed = i.split('-')
+            lst.extend(list(range(int(st), int(ed)+1)))
+        else:
+            lst.append(int(i))
+    return lst
