@@ -35,18 +35,3 @@ def combine_imgs_pdf(folder_path, pdf_file_path):  #合成pdf
             png_file = png_file.convert("RGB")
         sources.append(png_file)
     output.save(pdf_file_path, "pdf", save_all=True, append_images=sources)
-
-def getlist(origin):
-    origin_str = requests.get(origin).content.decode()
-    capter_str = re.findall('items\"(.*?)\/button',origin_str, re.S)
-    capter_list = re.findall('comics-chapters(.*?)<\/a>',capter_str[0], re.S)
-    #print('\n'.join(capter_list))
-    capter_final = []
-    for i in range (len(capter_list)):
-        capter_slot = re.findall('r_slot=(.*?)\"',capter_list[i], re.S)
-        capter_name = re.findall('<span.*?>(.+?)</span>',capter_list[i], re.S)
-#        capter_total = [{f'{capter_slot[0]}':capter_name[0]}]
-        capter_total = [[capter_slot[0],capter_name[0]]]
-        for u in range(len(capter_total)):
-            capter_final.append(capter_total[u])
-    return(capter_final)
