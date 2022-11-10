@@ -1,4 +1,4 @@
-import requests,time,os,ast,getfunction,comic_site
+import requests,time,os,ast,shutil,getfunction,comic_site
 
 with open('comic_list.txt', 'r',encoding='UTF-8') as f:
     import_list = ast.literal_eval(f.read())
@@ -32,4 +32,5 @@ for i in range (len(final_list)):
 folder = f'./{directory_name}/'
 pdfFile = f'./PDF/{directory_name}.pdf'
 getfunction.combine_imgs_pdf(folder, pdfFile)
+shutil.rmtree(folder) #完成后删除图片文件夹
 print('\nComplate')
