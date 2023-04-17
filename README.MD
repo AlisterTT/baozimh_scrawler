@@ -1,4 +1,4 @@
-- for site https://cn.baozimh.com/（上了CF的五秒盾，已经无法获取）
+- for site https://cn.baozimh.com/
 - 打开漫画介绍页，复制链接，按格式添加进TXT文件
-- run comicsc.py
+- run main.py
 - download comic and combine to pdf file.
